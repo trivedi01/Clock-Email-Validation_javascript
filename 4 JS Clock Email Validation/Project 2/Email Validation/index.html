@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validation</title>
+    <script>
+ 
+const singupVlidation = ()=>{
+    // Define list of valid domains as an array
+    let domain_list = ['gmail.com', 'googlemail.co.uk', 'ymail.com', 'yahoo.com', 'yahoo.it', '......etc'];
+    let email = document.forms['customerinfo']['email'].value;
+    // Extract full domain from the email address
+    let domain = email.substring(email.lastIndexOf("@") +1);
+    // Check if the domain is present in the array of valid domains
+    if (domain_list.includes(domain)) {
+        alert('yo valid Email address')
+        return true;
+    } else {
+        alert('invalid Email address, please correct')
+        return false;
+    }
+}
+    </script>
+</head>
+<body>
+    <form action="/singup" name="customerinfo" method="post" onsubmit="return singupVlidation()">
+        <input class="inpt" type="email" name="email" placeholder="Email">
+        <br>
+        <input type="submit" value="NEXT" class="submit">
+    </form>
+</body>
+</html>
